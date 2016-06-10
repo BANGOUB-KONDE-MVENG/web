@@ -1,0 +1,142 @@
+
+body{
+ margin:0px;
+ font-family:"Source Sans Pro";
+}
+
+#container{
+   
+}
+
+#header{
+ position:relative;
+ float:left;
+ width:100%;
+ height:50px;
+ border:1px solid black;
+ background:black;
+}
+
+/*#header */
+.img-search{
+ position:relative;
+ float:right;
+ width:30px;
+ height:30px;
+ margin:10px;
+ background: url("../img/loup.png") 0px 0px no-repeat;
+ background-size:30px;
+ cursor:pointer;
+}
+
+#container-search{
+ position:absolute;
+ width:100%;
+ height:auto;
+ top:50px;
+ border:1px solid black;
+ background:gray;
+ padding-top:10px;
+ padding-bottom:20px;
+ display:none;
+}
+
+#container-search .search-content{
+position:relative;
+margin:0 auto;
+width:600px;
+
+}
+#container-search .search-content .search-title{
+position:relative;
+padding-left:3px;
+border-bottom:1px solid black;
+height:25px;
+width:100%;
+}
+
+#container-search  .search-critere{
+  position:relative;
+  margin-top:2px;
+  padding-top:5px;
+  
+}
+#container-search .search-critere .top{
+   border:0px solid green;
+   width:100%;
+   margin-bottom:5px;
+}
+#container-search .search-critere .top ul{ 
+list-style:none;
+margin:0;
+}
+#container-search .search-critere .top ul li{
+display:inline;
+margin:10px;
+}
+
+#container-search  .search-critere .bottom{
+width:100%;
+position:relative;
+float:left;
+padding-top:5px;
+border:0px solid blue;
+}
+
+#container-search  .search-critere .bottom > div{
+position:realtive;
+width:100%;
+float:left;
+display:none;
+text-align:center;
+}
+#container-search  .search-critere .bottom > div.open{
+ display:block;
+}
+
+#container-search  .search-critere .bottom > div input{
+border:1px solid black;
+}
+
+#container-search  .search-critere .bottom > div.byDefault input[type="text"]{ 
+  width:60%;
+  padding:5px;
+  font-size:12px;
+}
+#container-search  .search-critere .bottom > div.byDefault input[type="submit"]{
+  width:20%;
+  padding:5px;
+  font-size:12px;
+}
+#container-search  .search-critere .bottom > div.byDate input[type="date"]{
+  width:40%;
+  padding:5px;
+  font-size:12px;
+}
+#container-search  .search-critere .bottom > div.byDate input[type="submit"]{
+  margin-top:10px;
+  width:20%;
+  padding:7px;
+  font-size:12px;
+}
+
+#container-search  .search-critere .bottom > div.byPlace input[type="text"]{ 
+  width:60%;
+  padding:5px;
+  font-size:12px;
+}
+#container-search  .search-critere .bottom > div.byPlace input[type="submit"]{
+  width:20%;
+  padding:5px;
+  font-size:12px;
+}
+
+
+
+
+
+
+
+
+
+
