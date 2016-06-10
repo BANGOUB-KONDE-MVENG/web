@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10 juin 2016, 16:34:35
+    Author     : Hervé MVENG
+*/
+
+
+.container-formation{
+    position:relative;
+    float:left;
+    border:0px solid black;
+    width:100%;
+    height:auto;
+    padding-bottom: 5px;
+}
+.container-formation .title-container{
+   position:relative;
+   float:left;
+   border-bottom:2px solid black;
+   padding-bottom: 2px;
+   width:100%;
+   font-size:20px;
+   margin-bottom: 5px;
+}
+
+.items-formations{
+    position:relative;
+    float:left;
+    border:1px solid silver;
+    width:250px;
+    height:120px;
+    margin-right:5px;
+    padding-top:3px;
+    text-align:center;
+    margin-top:2px;
+}
+.items-formations:hover{
+    background-color: silver;
+}
+.items-formations > div{
+    
+}
+.items-formations div.book{
+    border:0px solid blue;
+    height:50px;
+    background: url("../img/livre.png") no-repeat 0px;;
+}
+.items-formations div.title{
+    font-size:18px;
+    font-weight: bold;
+}
+.items-formations > div.option{
+    
+}
+.items-formations > div.option a{
+   padding-left:17px;
+   background:url("../img/info.png") no-repeat 0px;
+   background-size: 15px;
+   font-style: italic;
+   color:#000;
+}
