@@ -32,12 +32,13 @@ and open the template in the editor.
     float:left;
     border:1px solid silver;
     width:250px;
-    height:120px;
     margin-right:5px;
     padding-top:3px;
     text-align:center;
     margin-top:2px;
 }
+.items-formations.home{height:120px;}
+.items-formations.training{height:150px;}
 .items-formations:hover{
     background-color: silver;
 }
@@ -56,10 +57,16 @@ and open the template in the editor.
 .items-formations > div.option{
     
 }
+.items-formations > div.option a:first-child{
+    background:url("../img/info.png") no-repeat 0px;
+   background-size: 15px;
+}
+.items-formations > div.option a:last-child{
+     background:url("../img/edit.png") no-repeat -2px -2px;
+   background-size: 15px;
+}
 .items-formations > div.option a{
    padding-left:17px;
-   background:url("../img/info.png") no-repeat 0px;
-   background-size: 15px;
    font-style: italic;
    color:#000;
 }
