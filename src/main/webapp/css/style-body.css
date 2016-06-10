@@ -57,11 +57,11 @@ and open the template in the editor.
 .items-formations > div.option{
     
 }
-.items-formations > div.option a:first-child{
+.items-formations > div.option a.details{
     background:url("../img/info.png") no-repeat 0px;
    background-size: 15px;
 }
-.items-formations > div.option a:last-child{
+.items-formations > div.option a.record{
      background:url("../img/edit.png") no-repeat -2px -2px;
    background-size: 15px;
 }
