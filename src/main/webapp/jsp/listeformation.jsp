@@ -10,7 +10,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
         
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +18,9 @@
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     
      <link href="../css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="./css/style-toolSearch.css" type="text/css" media="screen" />
+     <link href="./css/style-body.css" rel="stylesheet">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -27,9 +29,9 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/main-search.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -59,56 +61,100 @@
             <li><a href="">A propos</a></li>
             <li><a href="">Contact</a></li>
           </ul>
+            <div class="img-search"></div>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
+     <!-- debut serach -->
+         <div id="container-search">
+	     <div class="search-content">
+		<div class="search-title">
+                    Recherhe dans notre catalogue
+                </div>
+		<div class="search-critere">
+		    <div class="top">
+			<ul>
+			    <li> 
+                                <input type="checkbox" checked="checked" value="byDefault" >Formations
+                            </li>
+			    <li> 
+                                <input type="checkbox" value="byDate" >Formations par date
+                            </li>
+			    <li> 
+                                <input type="checkbox" value="byPlace" > Formations par lieu
+                            </li>
+			</ul>
+		    </div>
+		    <div class="bottom">
+			<div class="byDefault">
+			    <form method="post" action="./resultatrecherchetitre.kbm">
+				<input type="text" placeholder="Rechercher une formation ..." />
+				<input type="submit" value="Valider" />
+			    </form>
+			</div>
+			<div class="byDate">
+			    <form method="post" action="./resultatrecherchedate.kbm">
+				Du <input type="date" name="datedebut" />
+				Au <input type="date"  />
+				<input type="submit" value="Valider" />
+			    </form>
+			</div>
+			<div class="byPlace">
+			    <form method="post" action="./Recherchelocation.kbm">
+				<input type="text" placeholder="Lieu de formation ..." name="locId"/>
+				<input type="submit" value="Valider" />
+			    </form>
+			</div>
+		    </div>
+					     
+		</div>
+	    </div>
+	</div>
+         
+         <!-- fin serach -->
+         
     <div class="container">
 
         <div class="starter-template">
             <br/><br/><br/>
-        <h1>Catalogue en Ligne</h1>
+            <!--
         <p class="lead">Voici la liste de nos Formations vous pouvez consulter les détails<br>en cliquant sur chaque titre</p>
-      </div>
+      -->
+        </div>
+        
+        <div class="container-formation">
+                <div class="title-container">
+                    Catalogue de formations
+                </div>
+              <c:choose>
+                <c:when test="${listeCourse == null}">
+                    <p>Aucune formations disponisble</p>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="lstfor" items="${listeCourse}">  
+                        <div class="items-formations training">
+                            <div class="book"></div>
+                            <div class="title">
+                                ${lstfor.course.title}
+                            </div>
+                            <div class="date">
+                                du ${lstfor.startDate} au ${lstfor.endDate}
+                            </div>
+                            <div class="option">
+                                <a href="${pageContext.request.contextPath}/description.kbm?id=${lstfor.id}">
+                                            Détails
+                                        </a> | 
+                                <a href="${pageContext.request.contextPath}/inscription.kbm?id=${lstfor.id}">
+                                    Inscription       
+                                </a>
+                            </div>
+                        </div>  
+                    </c:forEach>    
+                </c:otherwise> 
+             </c:choose>
+            </div>
 
     </div><!-- /.container -->
-        
-    <div class="table-responsive"> 
-            <table class="table table-bordered" >  
-                <thead>
-                        <tr>  
-                            <th>N°</th>  
-                            <th>Title</th> 
-                            <th>Debut Session</th> 
-                            <th>Fin Session</th>  
-                        </tr>  
-                </thead>
-    <c:forEach var="lstfor" items="${listeCourse}">  
-        <tr> 
-            <td class="danger">
-                <a href="${pageContext.request.contextPath}/inscription.kbm?id=${lstfor.id}">
-                    Enregistrez-vous ici        
-                </a>
-            </td>
-            
-            
-            <td class="info">
-                <a href="${pageContext.request.contextPath}/description.kbm?id=${lstfor.id}">${lstfor.course.title}</a> 
-            </td> 
-            
-            <td class="success"> 
-                <a href="${pageContext.request.contextPath}/description.kbm?id=${lstfor.id}">${lstfor.startDate}</a>
-                </td>
-            
-                <td class="danger">
-                    
-                   <a href="${pageContext.request.contextPath}/inscription.kbm?id=${lstfor.id}">${lstfor.endDate}</a> 
-                    
-               </td>
-        </tr>  
-    </c:forEach>  
-</table> 
-        </div>
    
     <!-- Bootstrap core JavaScript
     ================================================== -->
