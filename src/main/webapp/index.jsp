@@ -18,6 +18,7 @@
         <link rel="icon" href="http://getbootstrap.com/favicon.ico">
         <!-- Bootstrap pour le formulaire de recherche-->
         <link rel="stylesheet" href="./css/style-toolSearch.css" type="text/css" media="screen" />
+         <link href="./css/style-body.css" rel="stylesheet">
         <script type="text/javascript" src="./js/jquery.js"></script>
 	<script type="text/javascript" src="./js/main-search.js"></script>
        
@@ -112,33 +113,42 @@
         <div class="container">
 
             <div class="starter-template">
-                <br/><br/><br/>
+               <br/><br/><br/>
                 <h1>Fomation en Ligne</h1>
                 <p class="lead">Bienvenue sur notre application Web de Formation en ligne.<br> Vous pouvez obtenir le détail de nos formations en consultant notre catalogue.</p>
-                <br/><p class="lead">Vous pouvez aussi vous inscrire à nos UV en cliquant<a href="./inscription.kbm"> ici.</a></p>
             </div>
+            
+            <!-- info sur les formations  -->
+            
+            <div class="container-formation">
+                <div class="title-container">
+                    Nos Formations
+                </div>
+              <c:choose>
+                <c:when test="${lestitres == null}">
+                    <p>Aucune formations disponisble</p>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="lst" items="${lestitres}">  
+                        <div class="items-formations home">
+                            <div class="book"></div>
+                            <div class="title">${lst.course.title}</div>
+                            <div class="option">
+                                <a class="details" href="${pageContext.request.contextPath}/description.kbm?id=${lst.id}">
+                                            Détails
+                                        </a>
+                            </div>
+                        </div>  
+                    </c:forEach>    
+                </c:otherwise> 
+             </c:choose>
+            </div>
+            
+            <!-- fin info sur les formations  -->
 
         </div><!-- /.container -->
        
         <div class="table-responsive"> 
-            <table class="table table-bordered" >  
-                <thead>
-                    <tr>  
-                        <th>Libellé des Formations</th>  
-                        
-                    </tr>  
-                </thead>
-                <c:forEach var="lst" items="${lestitres}">  
-                    <tr>
-
-                        <td class="info">
-
-                            <a href="${pageContext.request.contextPath}/description.kbm?id=${lst.id}">${lst.course.title}</a> 
-
-                        </td>
-                    </tr>  
-                </c:forEach>  
-            </table> 
 
             <!-- Placed at the end of the document so the pages load faster -->
             <script src="js/jquery.min.js"></script>
