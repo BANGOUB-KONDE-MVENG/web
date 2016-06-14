@@ -4,6 +4,7 @@
     Author     : jacques
 --%>
 
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -81,12 +82,12 @@
     <c:forEach var="lst" items="${lstCourse}">  
         <tr> 
             <td class="info">
-               45 <a href="">${lst.getCode()}</a> 
+              <a href="">${lst.getCode()}</a> 
             </td> 
             
             
             <td class="info">
-                <a href="">${lst.getTitle()}456</a> 
+                <a href="">${lst.getTitle()}</a> 
             </td> 
                            
         </tr>  

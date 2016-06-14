@@ -16,16 +16,18 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-        <!-- Bootstrap core CSS -->
-        <link href="./css/bootstrap.css" rel="stylesheet">
+        <!-- Bootstrap pour le formulaire de recherche-->
         <link rel="stylesheet" href="./css/style-toolSearch.css" type="text/css" media="screen" />
-         <link href="./css/style-body.css" rel="stylesheet">
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <script type="text/javascript" src="./js/jquery.js"></script>
 	<script type="text/javascript" src="./js/main-search.js"></script>
        
         <title>Formation en Ligne</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <script src="js/ie-emulation-modes-warning.js"></script><style type="text/javascript"></style>
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -66,94 +68,59 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
-         <!-- debut serach -->
+         <!-- cgfglhhm -->
          <div id="container-search">
-	     <div class="search-content">
-		<div class="search-title">
-                    Recherhe dans notre catalogue
-                </div>
-		<div class="search-critere">
-		    <div class="top">
-			<ul>
-			    <li> 
-                                <input type="checkbox" checked="checked" value="byDefault" >Formations
-                            </li>
-			    <li> 
-                                <input type="checkbox" value="byDate" >Formations par date
-                            </li>
-			    <li> 
-                                <input type="checkbox" value="byPlace" > Formations par lieu
-                            </li>
-			</ul>
-		    </div>
-		    <div class="bottom">
-			<div class="byDefault">
-			    <form method="post" action="./resultatrecherchetitre.kbm">
-				<input type="text" placeholder="Rechercher une formation ..." />
-				<input type="submit" value="Valider" />
-			    </form>
-			</div>
-			<div class="byDate">
-			    <form method="post" action="./resultatrecherchedate.kbm">
-				Du <input type="date" name="datedebut" />
-				Au <input type="date"  />
-				<input type="submit" value="Valider" />
-			    </form>
-			</div>
-			<div class="byPlace">
-			    <form method="post" action="./Recherchelocation.kbm">
-				<input type="text" placeholder="Lieu de formation ..." name="locId"/>
-				<input type="submit" value="Valider" />
-			    </form>
-			</div>
-		    </div>
+		         <div class="search-content">
+				      <div class="search-title">
+						Recherhe dans notre catalogue
+					 </div>
+					 <div class="search-critere">
+					       <div class="top">
+						      <ul>
+							    <li> <input type="checkbox" checked="checked" value="byDefault" >Formations</li>
+							    <li> <input type="checkbox" value="byDate" >Formations par date</li>
+							    <li> <input type="checkbox" value="byPlace" > Formations par lieu</li>
+							  </ul>
+						   </div>
+						   <div class="bottom">
+								<div class="byDefault">
+								    <form method="post" action="./resultatrecherchetitre.kbm">
+									    <input type="text" placeholder="Rechercher une formation ..." name="cle"/>
+									    <input type="submit" value="Valider" />
+									</form>
+								</div>
+								<div class="byDate">
+								   <form method="post" action="./resultatrecherchedate.kbm">
+									    Du <input type="date" name="datedebut" />
+									    Au <input type="date"  />
+									    <input type="submit" value="Valider" />
+									</form>
+								</div>
+								<div class="byPlace">
+								   <form method="post" action="./Recherchelocation.kbm">
+									    <input type="text" placeholder="Lieu de formation ..." name="locId"/>
+									    <input type="submit" value="Valider" />
+									</form>
+								</div>
+						   </div>
 					     
-		</div>
-	    </div>
-	</div>
+					 </div>
+				 </div>
+		   </div>
          
-         <!-- fin serach -->
+         <!-- cgfglhhm -->
         <div class="container">
 
             <div class="starter-template">
                 <br/><br/><br/>
-                <!--<h1>Fomation en Ligne</h1> -->
+                <h1>Fomation en Ligne</h1>
                 <p class="lead">Bienvenue sur notre application Web de Formation en ligne.<br> Vous pouvez obtenir le détail de nos formations en consultant notre catalogue.</p>
+                <br/><p class="lead">Vous pouvez aussi vous inscrire à nos UV en cliquant<a href="./inscription.kbm"> ici.</a></p>
             </div>
-            
-            <!-- info sur les formations  -->
-            
-            <div class="container-formation">
-                <div class="title-container">
-                    Nos Formations
-                </div>
-              <c:choose>
-                <c:when test="${lestitres == null}">
-                    <p>Aucune formations disponisble</p>
-                </c:when>
-                <c:otherwise>
-                    <c:forEach var="lst" items="${lestitres}">  
-                        <div class="items-formations">
-                            <div class="book"></div>
-                            <div class="title">${lst.course.title}</div>
-                            <div class="option">
-                                <a href="${pageContext.request.contextPath}/description.kbm?id=${lst.id}">
-                                            Détails
-                                        </a>
-                            </div>
-                        </div>  
-                    </c:forEach>    
-                </c:otherwise> 
-             </c:choose>
-            </div>
-            
-            <!-- fin info sur les formations  -->
 
         </div><!-- /.container -->
        
-        
         <div class="table-responsive"> 
-            <!--
             <table class="table table-bordered" >  
                 <thead>
                     <tr>  
@@ -172,7 +139,7 @@
                     </tr>  
                 </c:forEach>  
             </table> 
-           -->
+
             <!-- Placed at the end of the document so the pages load faster -->
             <script src="js/jquery.min.js"></script>
             <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
@@ -181,6 +148,5 @@
             <script type="text/javascript"  src="js/ie10-viewport-bug-workaround.js"></script>
 
         </div>
-        
     </body>
 </html>
