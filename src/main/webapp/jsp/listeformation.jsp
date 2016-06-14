@@ -141,10 +141,10 @@
                                 du ${lstfor.startDate} au ${lstfor.endDate}
                             </div>
                             <div class="option">
-                                <a href="${pageContext.request.contextPath}/description.kbm?id=${lstfor.id}">
+                                <a class="details" href="${pageContext.request.contextPath}/description.kbm?id=${lstfor.id}">
                                             Détails
                                         </a> | 
-                                <a href="${pageContext.request.contextPath}/inscription.kbm?id=${lstfor.id}">
+                                <a class="record" href="${pageContext.request.contextPath}/inscription.kbm?id=${lstfor.id}">
                                     Inscription       
                                 </a>
                             </div>
