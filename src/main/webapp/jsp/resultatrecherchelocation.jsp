@@ -93,7 +93,7 @@
 			<div class="byDate">
 			    <form method="post" action="./resultatrecherchedate.kbm">
 				Du <input type="date" name="datedebut" />
-				Au <input type="date"  />
+				Au <input type="date" name="datefin" />
 				<input type="submit" value="Valider" />
 			    </form>
 			</div>
