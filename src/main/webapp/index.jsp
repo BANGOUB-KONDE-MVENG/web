@@ -142,7 +142,7 @@
                 <c:otherwise>
                     <c:forEach var="lst" items="${lestitres}">  
                         <div class="items-formations home">
-                            <div class="book"></div>
+                            <div class="book"></div> 
                             <div class="title">${lst.course.title}</div>
                             <div class="option">
                                 <a class="details" href="${pageContext.request.contextPath}/description.kbm?id=${lst.id}">
