@@ -49,18 +49,13 @@ public class ListeFormationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
         CourseSessionDAO Listedesformations = new CourseSessionDAO();
-        
-        
         List<CourseSession> listes = Listedesformations.getAllCourseSession();
            
-           
-         request.setAttribute("listeCourse", listes);
-        //request.setAttribute("lis", lis);
+        request.setAttribute("listeCourse", listes);
 		
-	
-       //processRequest(request, response);
-        this.getServletContext().getRequestDispatcher(
+	this.getServletContext().getRequestDispatcher(
         "/jsp/listeformation.jsp").forward( request, response );
     }
 
