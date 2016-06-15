@@ -57,6 +57,7 @@ public class Confirmationinscriptionservlet extends HttpServlet {
            
            ClientDAO cliDAO = new ClientDAO();
            cliDAO.addClient(cli);
+           
         
         //j'envoi un méssage au user pour le notifier de son inscription
         String message="votre inscription a bien été prise en compte";
