@@ -55,16 +55,18 @@ public class descriptionServlet extends HttpServlet {
          // On rÃƒÆ’Ã‚Â©cupÃƒÆ’Ã‚Â¨re le paramÃƒÆ’Ã‚Â¨tre id  
         String id = request.getParameter("id");
         int idvrai=Integer.parseInt(id);
+       
         CourseSessionDAO csDAO = new CourseSessionDAO();
         CourseSession cs = new CourseSession();
         List<Client> lstParticipants = new ArrayList<Client>();
         if( csDAO.getCourseSession(idvrai) != null){
             cs = csDAO.getCourseSession(idvrai);
-            lstParticipants = csDAO.getAllParticipantCourseSession(1);
+            lstParticipants = csDAO.getAllParticipantCourseSession(idvrai);
             
         }
         request.setAttribute("Macourse", cs); 
         request.setAttribute("participants", lstParticipants); 
+        
        
      
          this.getServletContext().getRequestDispatcher(
