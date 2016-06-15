@@ -13,11 +13,13 @@ import fr.utbm.formation.repository.CourseSessionDAO;
 import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.util.List;
+import javax.faces.view.Location;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.Client;
 
 /**
  *
