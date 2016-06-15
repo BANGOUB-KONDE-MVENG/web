@@ -5,10 +5,13 @@
  */
 package fr.formationfrontend.actionServlet;
 
+import fr.utbm.formation.entity.Client;
 import fr.utbm.formation.entity.CourseSession;
 import fr.utbm.formation.repository.CourseDAO;
 import fr.utbm.formation.repository.CourseSessionDAO;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,24 +52,19 @@ public class descriptionServlet extends HttpServlet {
             throws ServletException, IOException {
         
         // List<Course> lstCourse = new ArrayList<Course>(); 
-         // On rÃƒÂ©cupÃƒÂ¨re le paramÃƒÂ¨tre id  
+         // On rÃƒÆ’Ã‚Â©cupÃƒÆ’Ã‚Â¨re le paramÃƒÆ’Ã‚Â¨tre id  
         String id = request.getParameter("id");
         int idvrai=Integer.parseInt(id);
         CourseSessionDAO csDAO = new CourseSessionDAO();
         CourseSession cs = new CourseSession();
+        List<Client> lstParticipants = new ArrayList<Client>();
         if( csDAO.getCourseSession(idvrai) != null){
             cs = csDAO.getCourseSession(idvrai);
-        }
-      
-            // Allons chercher la course correspondant ÃƒÂ  l'id  
-             request.setAttribute("Macourse", cs); 
-             
-        
+            lstParticipants = csDAO.getAllParticipantCourseSession(1);
             
-            // On met la course dans la reqÃƒÂªte  
-           
-            // Et la date de publication aussi  
-           // request.setAttribute("bookPubDate", dateFormat.format(book.getPubDate()));  
+        }
+        request.setAttribute("Macourse", cs); 
+        request.setAttribute("participants", lstParticipants); 
        
      
          this.getServletContext().getRequestDispatcher(
