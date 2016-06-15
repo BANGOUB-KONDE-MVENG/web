@@ -121,8 +121,10 @@ border:1px solid black;
   font-size:12px;
 }
 
-#container-search  .search-critere .bottom > div.byPlace input[type="text"]{ 
-  width:60%;
+#container-search  .search-critere .bottom > div.byPlace select{ 
+      width: 200px;
+    height: 30px;
+    border: 1px solid;
   padding:5px;
   font-size:12px;
 }
