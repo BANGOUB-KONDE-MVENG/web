@@ -126,10 +126,22 @@ and open the template in the editor.
     
 }
 
-.container-participant .items-participant{
-    border:1px solid black;
-    position:relative;
-    float:left;
-    width:100px;
+.container-participant .tab-participant{
+    
     
 }
+.container-participant .tab-participant thead{
+    background: silver;
+    font-weight:bold;
+}
+.container-participant .tab-participant td{ 
+    border:1px solid black;
+    text-align: center;
+}
+.container-participant .tab-participant td.np{ width:200px;}
+.container-participant .tab-participant td.ad{ width:300px;}
+.container-participant .tab-participant td.ph{ width:150px;}
+.container-participant .tab-participant td.em{ width:200px;}
+
+
+
