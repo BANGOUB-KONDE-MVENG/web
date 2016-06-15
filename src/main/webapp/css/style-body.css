@@ -143,5 +143,19 @@ and open the template in the editor.
 .container-participant .tab-participant td.ph{ width:150px;}
 .container-participant .tab-participant td.em{ width:200px;}
 
+.items-formations.course{
+    border:1px solid silver;
+    width:200px;
+    height:100px;
+}
+
+.items-formations.course .book{
+    background: url("../img/img-cours.png") no-repeat 0px;
+}
+.items-formations.course .title{
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 
 
