@@ -6,7 +6,10 @@
 package fr.formationfrontend.actionServlet;
 
 
+import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.repository.CourseSessionDAO;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,15 +34,23 @@ public class Inscriptioncourseservlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // je recupère l'id et je le parse
-        String id = request.getParameter("id");
-        int idvrai=Integer.parseInt(id);
-        // je l'envoi à la jsp des inscriptions
-        request.setAttribute("monid", idvrai);
         
-       
+            if(request.getParameter("id") != null){
+             String id = request.getParameter("id");
+             int idvrai=Integer.parseInt(id);
+             request.setAttribute("monid", idvrai);
+         }
+            else{
+                CourseSessionDAO csDAO = new CourseSessionDAO();
+                List<CourseSession> listCS = csDAO.getAllCourseSession();
+                request.setAttribute("coursesession", listCS);
+            }
+            
+         // fait ton controle et met la réponse dans cette variable
+            // String msg = "";
+            // request.setAttribute("message", msg);
         
-       this.getServletContext().getRequestDispatcher(
+      this.getServletContext().getRequestDispatcher(
         "/jsp/inscriptionformation.jsp").forward( request, response );
     }
 
