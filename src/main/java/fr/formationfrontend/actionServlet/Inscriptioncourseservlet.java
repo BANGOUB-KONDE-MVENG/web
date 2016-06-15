@@ -34,6 +34,21 @@ public class Inscriptioncourseservlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< .mine
+        // je recupère l'id et je le parse
+       //String id = request.getParameter("id");
+        
+       // int idvrai=Integer.parseInt(id);
+        // je l'envoi à la jsp des inscriptions
+       // request.setAttribute("monid", idvrai);
+||||||| .r15
+        // je recupère l'id et je le parse
+        String id = request.getParameter("id");
+        int idvrai=Integer.parseInt(id);
+        // je l'envoi à la jsp des inscriptions
+        request.setAttribute("monid", idvrai);
+=======
+>>>>>>> .r18
         
             if(request.getParameter("id") != null){
              String id = request.getParameter("id");
