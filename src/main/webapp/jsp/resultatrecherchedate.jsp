@@ -52,7 +52,7 @@
                 <a class="navbar-brand" href="./Listetitreformation.kbm">Fomation en Ligne</a>
               </div>
               <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav"> 
                   <li><a href="./Listetitreformation.kbm">Accueil</a></li>
                       <li class="active"><a href="./liste.kbm">Catalogue</a></li>
                       <li class=""><a href="./inscription.kbm">Inscriptions</a></li>
@@ -85,20 +85,20 @@
 		    </div>
 		    <div class="bottom">
 			<div class="byDefault">
-			    <form method="post" action="./resultatrecherchetitre.kbm">
+			    <form method="post" action="/resultatrecherchetitre.kbm">
 				<input type="text" placeholder="Rechercher une formation ..." />
 				<input type="submit" value="Valider" />
 			    </form>
 			</div>
 			<div class="byDate">
-			    <form method="post" action="./resultatrecherchedate.kbm">
+			    <form method="post" action="/resultatrecherchedate.kbm">
 				Du <input type="date" name="datedebut" />
 				Au <input type="date" name="datefin" />
 				<input type="submit" value="Valider" />
 			    </form>
 			</div>
 			<div class="byPlace">
-			    <form method="post" action="./Recherchelocation.kbm">
+			    <form method="post" action="/Recherchelocation.kbm">
 				<select name="locId">
                                         <c:choose>
                                             <c:when test="${locations == null}">
