@@ -33,10 +33,12 @@ public class Recherchetitreformationservlet extends HttpServlet {
             throws ServletException, IOException {
         
       String  key = request.getParameter("cle");
+      
         CourseDAO cDAO = new CourseDAO();
         List<Course> lstCourse = cDAO.findCourseByTitle(key);
-        
         request.setAttribute("lstCourse", lstCourse);
+        request.setAttribute("wordsearch", key);
+      
        this.getServletContext().getRequestDispatcher(
         "/jsp/resultatrecherchetitre.jsp").forward( request, response );
     }
