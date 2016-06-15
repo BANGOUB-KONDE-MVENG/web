@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-import fr.utbm.formation.entity.CourseSession;
-import fr.utbm.formation.repository.CourseSessionDAO;
+//import fr.utbm.formation.entity.CourseSession;
+//import fr.utbm.formation.repository.CourseSessionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -45,11 +45,13 @@ public class Recherchedateformationservlet extends HttpServlet {
             System.out.println("Unparseable using " + ft); 
         }
         
-        
+        /*
         CourseSessionDAO csDAO = new CourseSessionDAO();
         
         List<CourseSession> lstSession = new ArrayList<CourseSession>();
         lstSession = csDAO.findCourseSessionByDate(start);
+        */ 
+        String lstSession = "rien";
         
         request.setAttribute("lstSession", lstSession);
         this.getServletContext().getRequestDispatcher(
