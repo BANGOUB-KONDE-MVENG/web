@@ -33,7 +33,7 @@ public class Recherchelocationformationservlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         CourseSessionDAO csDAO = new CourseSessionDAO();
+        CourseSessionDAO csDAO = new CourseSessionDAO();
          String  locationId = request.getParameter("locId");
          int locatId= Integer.parseInt(locationId);
         List<CourseSession> lstSession = new ArrayList<CourseSession>();
