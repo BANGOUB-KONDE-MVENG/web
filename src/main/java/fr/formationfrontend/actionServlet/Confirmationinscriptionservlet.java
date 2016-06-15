@@ -10,6 +10,7 @@ import fr.utbm.formation.entity.CourseSession;
 import fr.utbm.formation.repository.ClientDAO;
 import fr.utbm.formation.repository.CourseSessionDAO;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -60,6 +61,8 @@ public class Confirmationinscriptionservlet extends HttpServlet {
         //j'envoi un méssage au user pour le notifier de son inscription
         String message="votre inscription a bien été prise en compte";
         request.setAttribute("message", message);
+        List<CourseSession> listCS = csDAO.getAllCourseSession();
+        request.setAttribute("coursesession", listCS);
         this.getServletContext().getRequestDispatcher(
         "/jsp/inscriptionformation.jsp").forward( request, response );
         processRequest(request, response); 
