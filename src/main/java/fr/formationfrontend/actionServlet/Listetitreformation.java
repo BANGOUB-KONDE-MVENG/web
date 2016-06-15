@@ -6,7 +6,9 @@
 package fr.formationfrontend.actionServlet;
 
 import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.CourseSessionDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -33,10 +35,13 @@ public class Listetitreformation extends HttpServlet {
             throws ServletException, IOException {
         
         CourseSessionDAO listeTitre= new CourseSessionDAO();
-        
         List<CourseSession> lestitres = listeTitre.getAllCourseSession();
-       // List<Course> lestitress =
         request.setAttribute("lestitres", lestitres);
+        
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
+        
         //request.getSession().setAttribute("lestitres", true);
        this.getServletContext().getRequestDispatcher(
         "/index.jsp").forward( request, response );
