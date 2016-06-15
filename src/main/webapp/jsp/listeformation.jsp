@@ -143,7 +143,7 @@
                                             Détails
                                         </a> | 
                                 <a class="record" href="${pageContext.request.contextPath}/inscription.kbm?id=${lstfor.id}">
-                                    Inscription       
+                                    S'inscrire à ce cours     
                                 </a>
                             </div>
                         </div>  

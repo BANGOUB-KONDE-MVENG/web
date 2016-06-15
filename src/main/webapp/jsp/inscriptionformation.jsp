@@ -140,7 +140,18 @@
                             </div>
                             <c:choose>
                                 <c:when test="${monid != null }">
+                                    <div>
+                                        Inscription à : <br/>
+                                    <c:choose>
+                                        <c:when test="${currentcours != null }">
+                                            <span>
+                                               ${currentcours.course.title} 
+                                                             - du ${currentcours.startDate} au ${currentcours.endDate}
+                                            </span>
+                                        </c:when>
+                                    </c:choose>        
                                     <input type="hidden" name="id" value="${monid}" />
+                                   </div>
                                 </c:when>
                                 <c:otherwise>
                                  <div>

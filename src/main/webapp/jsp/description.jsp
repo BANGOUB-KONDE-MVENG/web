@@ -119,7 +119,11 @@
                         Titre :  <c:out value="${Macourse.course.title}"/><br/>
                         Date de début : <c:out value="${Macourse.startDate}"/><br/>
                         Date de fin : <c:out value="${Macourse.endDate}"/><br/>
-                        Lieu :  <c:out value="${Macourse.location.city}"/>
+                        Lieu :  <c:out value="${Macourse.location.city}"/> <br/><br/>
+                        
+                        <a class="record" href="${pageContext.request.contextPath}/inscription.kbm?id=${Macourse.id}">
+                                    Inscription       
+                        </a>
                    </div>
                    
                    <div class="title-container">
@@ -131,15 +135,24 @@
                                 <p>Aucun participants pour cette formation</p>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach var="lst" items="${participants}">  
-                                    <div class="items-participant">
-                                        ${lst.lastname} <br/>
-                                        ${lst.fisrtname} <br/>
-                                        ${lst.address}<br/>
-                                        ${lst.phone}<br/>
-                                        ${lst.email}
-                                    </div>  
-                                </c:forEach>    
+                                <table class="tab-participant">
+                                    <thead>
+                                        <td class="np">Nom</td>
+                                        <td class="np">Prénom</td>
+                                        <td class="ad">Adresse</td>
+                                        <td class="ph"> Téléphone</td>
+                                        <td class="em"> Mail</td>
+                                    </thead>
+                                    <c:forEach var="lst" items="${participants}"> 
+                                        <tr>
+                                            <td class="np">${lst.lastname}</td>
+                                            <td class="np">${lst.fisrtname}</td>
+                                            <td class="ad">${lst.address}</td>
+                                            <td class="ph"> ${lst.phone}</td>
+                                            <td class="em"> ${lst.email}</td>
+                                        </tr>
+                                    </c:forEach>  
+                                </table>   
                             </c:otherwise> 
                          </c:choose>
                    </div>
