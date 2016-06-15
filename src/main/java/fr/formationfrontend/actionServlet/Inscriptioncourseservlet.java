@@ -54,16 +54,16 @@ public class Inscriptioncourseservlet extends HttpServlet {
              String id = request.getParameter("id");
              int idvrai=Integer.parseInt(id);
              request.setAttribute("monid", idvrai);
+             
+             CourseSessionDAO csDAO = new CourseSessionDAO();
+             CourseSession cs = csDAO.getCourseSession(idvrai);
+             request.setAttribute("currentcours", cs);
          }
             else{
                 CourseSessionDAO csDAO = new CourseSessionDAO();
                 List<CourseSession> listCS = csDAO.getAllCourseSession();
                 request.setAttribute("coursesession", listCS);
             }
-            
-         // fait ton controle et met la réponse dans cette variable
-            // String msg = "";
-            // request.setAttribute("message", msg);
         
       this.getServletContext().getRequestDispatcher(
         "/jsp/inscriptionformation.jsp").forward( request, response );
