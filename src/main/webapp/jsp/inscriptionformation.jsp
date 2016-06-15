@@ -115,20 +115,61 @@
                         Inscription à une session de formation
                     </div>
                 
-                    <div class="container-inscription"> 
+                    <div class="container-inscription">
+                        <c:choose>
+                                <c:when test="${message != null }">
+                                    <div class="box-message"> ${message}</div>
+                                </c:when>
+                        </c:choose>   
                         
-                         bejkbkj
+                        <form name="formulaire" action="./Confirmationinscription.kbm" method="post">
+                            <div>
+                                Nom:     <input class="form-control" type="text" size="40" name="nom" >
+                            </div>
+                            <div>
+                                Prénom:  <input class="form-control" type="text" size="40" name="prenom"> 
+                            </div>
+                            <div>
+                                Adresse:  <input class="form-control" type="text" size="40" name="adresse"> 
+                            </div>
+                            <div>
+                                Courriel: <input class="form-control" type="text" size="40" name="courriel">
+                            </div>
+                            <div>
+                                Téléphone:  <input class="form-control" type="text" size="40" name="telephone">
+                            </div>
+                            <c:choose>
+                                <c:when test="${monid != null }">
+                                    <input type="hidden" name="id" value="${monid}" />
+                                </c:when>
+                                <c:otherwise>
+                                 <div>
+                                  Selectionner une Session de cours  <br/>
+                                    <c:choose>
+                                        <c:when test="${coursesession == null }">
+                                            <span>Aucune session de cours trouvé</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <select name="id">
+                                                <c:forEach var="lst" items="${coursesession}">  
+                                                        <option value="${lst.id}"> 
+                                                            ${lst.course.title} 
+                                                             - du ${lst.startDate} au ${lst.endDate}
+                                                        </option>
+                                                </c:forEach> 
+                                            </select>
+                                        </c:otherwise> 
+                                    </c:choose>
+                                 </div>
+                                </c:otherwise> 
+                             </c:choose>
+                                    
+                            <div>
+                               <input type="submit" value="Envoyer"> <input type="reset" value="Annuler">
+                            </div>
+            
+                        </form>
                     </div>
-                
-                
-                  <c:choose>
-                    <c:when test="${monid == null}">
-                        <p>Aucune formations disponisble</p>
-                    </c:when>
-                    <c:otherwise>
-                           
-                    </c:otherwise> 
-                 </c:choose>
                 </div>
 
     </div><!-- /.container -->
