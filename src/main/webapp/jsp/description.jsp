@@ -19,23 +19,15 @@
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     
      <link href="../css/bootstrap.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-   <script src="../js/ie-emulation-modes-warning.js"></script><style type="text/javascript"></style>
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+        <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+       <link rel="stylesheet" href="./css/style-toolSearch.css" type="text/css" media="screen" />
+      <link href="./css/style-body.css" rel="stylesheet">
+       <script src="../js/ie-emulation-modes-warning.js"></script><style type="text/javascript"></style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="./js/main-search.js"></script>
    
         <title>Detail Formations</title>
     </head>
@@ -60,31 +52,104 @@
             <li><a href="">A propos</a></li>
             <li><a href="">Contact</a></li>
           </ul>
+            <div class="img-search"></div>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
         
-             <div class="starter-template">
-            <br/><br/><br/>
-        <h1>Détail Formations</h1>
-        <c:out value=" Titre de la formation: ${Macourse.course.title}"/><br/>
-        <c:out value="Date de début:${Macourse.startDate}"/><br/>
-        <c:out value="Date de fin: ${Macourse.endDate}"/><br/>
-        <c:out value="Ville de la formation: ${Macourse.location.city}"/>
+        <!-- debut serach -->
+         <div id="container-search">
+	     <div class="search-content">
+		<div class="search-title">
+                    Recherhe dans notre catalogue
+                </div>
+		<div class="search-critere">
+		    <div class="top">
+			<ul>
+			    <li> 
+                                <input type="checkbox" checked="checked" value="byDefault" >Formations
+                            </li>
+			    <li> 
+                                <input type="checkbox" value="byDate" >Formations par date
+                            </li>
+			    <li> 
+                                <input type="checkbox" value="byPlace" > Formations par lieu
+                            </li>
+			</ul>
+		    </div>
+		    <div class="bottom">
+			<div class="byDefault">
+			    <form method="post" action="./resultatrecherchetitre.kbm">
+				<input type="text" placeholder="Rechercher une formation ..." />
+				<input type="submit" value="Valider" />
+			    </form>
+			</div>
+			<div class="byDate">
+			    <form method="post" action="./resultatrecherchedate.kbm">
+				Du <input type="date" name="datedebut" />
+				Au <input type="date"  />
+				<input type="submit" value="Valider" />
+			    </form>
+			</div>
+			<div class="byPlace">
+			    <form method="post" action="./Recherchelocation.kbm">
+				<input type="text" placeholder="Lieu de formation ..." name="locId"/>
+				<input type="submit" value="Valider" />
+			    </form>
+			</div>
+		    </div>
+					     
+		</div>
+	    </div>
+	</div>
+         
+         <!-- fin serach -->
+         <div class="container">
+
+            <div class="starter-template">
+                <br/><br/><br/>
+            </div>
+        
+            <div class="container-formation">
+                    <div class="title-container">
+                        Détail Formations
+                    </div>
+                
+                   <div class="info-formations">
+                        Titre :  <c:out value="${Macourse.course.title}"/><br/>
+                        Date de début : <c:out value="${Macourse.startDate}"/><br/>
+                        Date de fin : <c:out value="${Macourse.endDate}"/><br/>
+                        Lieu :  <c:out value="${Macourse.location.city}"/>
+                   </div>
+                   
+                   <div class="title-container">
+                        Participants
+                   </div>
+                   <div class="container-participant">
+                       <c:choose>
+                            <c:when test="${participants == null}">
+                                <p>Aucun participants pour cette formation</p>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="lst" items="${participants}">  
+                                    <div class="items-participant">
+                                        ${lst.lastname} <br/>
+                                        ${lst.fisrtname} <br/>
+                                        ${lst.address}<br/>
+                                        ${lst.phone}<br/>
+                                        ${lst.email}
+                                    </div>  
+                                </c:forEach>    
+                            </c:otherwise> 
+                         </c:choose>
+                   </div>
+            </div>
+         </div>
+        
       
         
        
       </div>
         
-        
-         <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
-    <script type="text/javascript"  src="js/bootstrap.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script type="text/javascript"  src="js/ie10-viewport-bug-workaround.js"></script>
-    <%-- <c:out value="${Macourse.title}"/>--%>
     </body>
 </html>
