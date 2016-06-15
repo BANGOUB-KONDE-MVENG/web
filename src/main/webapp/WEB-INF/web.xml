@@ -30,7 +30,7 @@
     </servlet>
     <servlet>
         <servlet-name>Recherchedateformationservlet</servlet-name>
-        <servlet-class>Recherchedateformationservlet</servlet-class>
+        <servlet-class>fr.formationfrontend.actionServlet.Recherchedateformationservlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListeFormationServlet</servlet-name>
