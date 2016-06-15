@@ -99,7 +99,18 @@
 			</div>
 			<div class="byPlace">
 			    <form method="post" action="./Recherchelocation.kbm">
-				<input type="text" placeholder="Lieu de formation ..." name="locId"/>
+				<select name="locId">
+                                        <c:choose>
+                                            <c:when test="${locations == null}">
+                                                <option value=""> ---- </option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:forEach var="lst" items="${locations}">  
+                                                    <option value="${lst.id}"> ${lst.city} </option>  
+                                                </c:forEach>    
+                                            </c:otherwise> 
+                                         </c:choose>
+                                 </select>
 				<input type="submit" value="Valider" />
 			    </form>
 			</div>
