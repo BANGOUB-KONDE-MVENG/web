@@ -7,8 +7,10 @@ package fr.formationfrontend.actionServlet;
 
 import fr.utbm.formation.entity.Client;
 import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.ClientDAO;
 import fr.utbm.formation.repository.CourseSessionDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.util.List;
 
@@ -57,7 +59,11 @@ public class Confirmationinscriptionservlet extends HttpServlet {
            
            ClientDAO cliDAO = new ClientDAO();
            cliDAO.addClient(cli);
-           
+          
+        // pour le toolSearch
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
         
         //j'envoi un méssage au user pour le notifier de son inscription
         String message="votre inscription a bien été prise en compte";

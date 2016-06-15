@@ -6,7 +6,9 @@
 package fr.formationfrontend.actionServlet;
 
 import fr.utbm.formation.entity.Course;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.CourseDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -38,6 +40,11 @@ public class Recherchetitreformationservlet extends HttpServlet {
         List<Course> lstCourse = cDAO.findCourseByTitle(key);
         request.setAttribute("lstCourse", lstCourse);
         request.setAttribute("wordsearch", key);
+        
+        // pour le toolSearch
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
       
        this.getServletContext().getRequestDispatcher(
         "/jsp/resultatrecherchetitre.jsp").forward( request, response );

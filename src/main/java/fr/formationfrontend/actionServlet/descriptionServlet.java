@@ -7,8 +7,10 @@ package fr.formationfrontend.actionServlet;
 
 import fr.utbm.formation.entity.Client;
 import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.CourseDAO;
 import fr.utbm.formation.repository.CourseSessionDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +69,10 @@ public class descriptionServlet extends HttpServlet {
         request.setAttribute("Macourse", cs); 
         request.setAttribute("participants", lstParticipants); 
         
-       
+       // pour le toolSearch
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
      
          this.getServletContext().getRequestDispatcher(
         "/jsp/description.jsp").forward( request, response );

@@ -6,7 +6,9 @@
 package fr.formationfrontend.actionServlet;
 
 import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.CourseSessionDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.util.List;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -54,6 +56,11 @@ public class ListeFormationServlet extends HttpServlet {
         List<CourseSession> listes = Listedesformations.getAllCourseSession();
            
         request.setAttribute("listeCourse", listes);
+        
+        // pour le toolSearch
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
 		
 	this.getServletContext().getRequestDispatcher(
         "/jsp/listeformation.jsp").forward( request, response );

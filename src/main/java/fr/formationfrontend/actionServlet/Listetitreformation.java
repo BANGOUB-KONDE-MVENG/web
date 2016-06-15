@@ -38,6 +38,7 @@ public class Listetitreformation extends HttpServlet {
         List<CourseSession> lestitres = listeTitre.getAllCourseSession();
         request.setAttribute("lestitres", lestitres);
         
+        // pour le toolSearch
         LocationDAO lDAO = new LocationDAO();
         List<Location> l = lDAO.getAllLocation();
         request.setAttribute("locations", l);

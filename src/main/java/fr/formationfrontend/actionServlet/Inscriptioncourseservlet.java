@@ -7,7 +7,9 @@ package fr.formationfrontend.actionServlet;
 
 
 import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.CourseSessionDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.util.List;
 
@@ -34,24 +36,10 @@ public class Inscriptioncourseservlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // je recupère l'id et je le parse
-       //String id = request.getParameter("id");
-        
-       // int idvrai=Integer.parseInt(id);
-        // je l'envoi à la jsp des inscriptions
-       // request.setAttribute("monid", idvrai);
-
-        // je recupère l'id et je le parse
-        String id = request.getParameter("id");
-        int idvrai=Integer.parseInt(id);
-        // je l'envoi à la jsp des inscriptions
-       // request.setAttribute("monid", idvrai);
-
         
             if(request.getParameter("id") != null){
-            // String id = request.getParameter("id");
-            // int idvrai=Integer.parseInt(id);
+            String id = request.getParameter("id");
+            int idvrai=Integer.parseInt(id);
              request.setAttribute("monid", idvrai);
              
              CourseSessionDAO csDAO = new CourseSessionDAO();
@@ -63,6 +51,11 @@ public class Inscriptioncourseservlet extends HttpServlet {
                 List<CourseSession> listCS = csDAO.getAllCourseSession();
                 request.setAttribute("coursesession", listCS);
             }
+            
+            // pour le toolSearch
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
         
       this.getServletContext().getRequestDispatcher(
         "/jsp/inscriptionformation.jsp").forward( request, response );

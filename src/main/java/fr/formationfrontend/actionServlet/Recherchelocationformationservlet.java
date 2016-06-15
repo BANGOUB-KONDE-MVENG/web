@@ -6,7 +6,9 @@
 package fr.formationfrontend.actionServlet;
 
 import fr.utbm.formation.entity.CourseSession;
+import fr.utbm.formation.entity.Location;
 import fr.utbm.formation.repository.CourseSessionDAO;
+import fr.utbm.formation.repository.LocationDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -38,6 +40,11 @@ public class Recherchelocationformationservlet extends HttpServlet {
          int locatId= Integer.parseInt(locationId);
         List<CourseSession> lstSession = new ArrayList<CourseSession>();
         lstSession = csDAO.findCourseSessionByLocation(locatId);
+        
+        // pour le toolSearch
+        LocationDAO lDAO = new LocationDAO();
+        List<Location> l = lDAO.getAllLocation();
+        request.setAttribute("locations", l);
         
         request.setAttribute("lstSession", lstSession);
        this.getServletContext().getRequestDispatcher(
